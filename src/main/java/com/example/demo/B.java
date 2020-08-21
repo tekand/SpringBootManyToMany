@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -26,7 +27,8 @@ public class B {
 
     private String text;
 
+    @Builder.Default
     @ManyToMany(mappedBy = "bs")
     @JsonIgnore
-    Set<A> as;
+    Set<A> as = new HashSet<>();
 }

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -24,7 +25,8 @@ public class A {
 
     private String text;
 
+    @Builder.Default
     @ManyToMany
-    Set<B> bs;
+    Set<B> bs = new HashSet<>();
 
 }
