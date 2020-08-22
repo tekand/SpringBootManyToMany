@@ -1,8 +1,10 @@
 package com.example.demo;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -27,6 +29,8 @@ public class A {
 
     @Builder.Default
     @ManyToMany
+    @JsonManagedReference
+    @EqualsAndHashCode.Exclude
     Set<B> bs = new HashSet<>();
 
 }
